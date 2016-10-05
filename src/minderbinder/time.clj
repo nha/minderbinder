@@ -1,5 +1,5 @@
 (ns minderbinder.time
-  (:require [minderbinder.core :refer (defunits-of)]))
+  (:require [minderbinder.core :refer [defunits-of]]))
 
 (defunits-of time :millisecond
   ""
@@ -10,7 +10,7 @@
   ;; levels of the ground state of the cesium-133 atom
   :second      1000
   :second      #{:sec :s :seconds}
-  
+
   :minute      [60 :sec]
   :minute      #{:min :minutes :m}
   :hour        [60 :min]
@@ -37,7 +37,7 @@
 (comment
   (defmacro in [unit body]
     `(unit-of-time ~body ~unit))
-  
+
   (minderbinder.time/in :seconds #unit/time [1000 :ms])
 
   (unit-of-time 1 :second)
@@ -49,5 +49,5 @@
 
   (/ (unit-of-time 1 :minute)
      (unit-of-time 1000 :ms))
-  
+
 )
