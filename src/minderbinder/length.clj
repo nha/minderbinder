@@ -1,13 +1,13 @@
 (ns minderbinder.length
-  (:require [minderbinder.core :refer (defunits-of)]))
+  (:require [minderbinder.core :refer [defunits-of]]))
 
 (def parse-length-unit identity)
 
 (defunits-of length :meter
   ""
-  ;; The meter is the length of the path travelled by light 
-  ;; in vacuum during a time interval of 1/299,792,458 of a 
-  ;; second. Originally meant to be 1e-7 of the length along 
+  ;; The meter is the length of the path travelled by light
+  ;; in vacuum during a time interval of 1/299,792,458 of a
+  ;; second. Originally meant to be 1e-7 of the length along
   ;; a meridian from the equator to a pole.
   :m  :meter
 
@@ -51,7 +51,9 @@
   :chain :surveyors-chain
   :chain #{:survey-chain :ch}
   :link :surveyors-link
-  :gunters-chain #{:surveyors-chain :chain}
+
+  ;;:gunters-chain #{:surveyors-chain :chain};; TODO find out why alias fails
+  ;;to compile
   :engineers-chain [100 :ft]
   :engineers-link [1/100 :engineers-chain]
   :ramsden-chain :engineers-chain
@@ -82,7 +84,7 @@
   :micron [1/1000 :mm]
   :micron #{:micrometre :µ :micrometer :um}
 
-  :nm [1/1000 :nm]
+  :nm [1/1000000000 :m]
   :nm #{:millimicrometre :nanometer :nanometre :millimicron}
 
   :pm [1/1000000 :micron]

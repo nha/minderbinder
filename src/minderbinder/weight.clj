@@ -1,21 +1,28 @@
 (ns minderbinder.weight
-  (:require [minderbinder.core :refer (defunits-of)]))
+  (:require [minderbinder.core :refer [defunits-of]]))
 
 (defunits-of weight :kilogram
   "WiP"
-  :kg #{:kilograms :kilogram :grave}
+  :kilogram 1
+  :kg :kilogram
+  ;;:kg [1 :kilogram]
+  ;;:kg #{:kilograms :kilogram :grave}
   :g 1/1000
-  :gram #{:grams :g}
+  :gram :g
+  :grams :gram
+  ;;:gram #{:grams :g} ;; TODO find why fails to compile NOTE: replacing :g
+  ;;above leads to compilation failure. Need to chain the elements in the set to
+  ;;avoid dependencies??
 
   :mg [1/1000 :g]
   :mg #{:milligrams :milligram}
-  
+
   :hg [100 :grams]
   :hg #{:hectograms :hectogram}
 
   :dg [1/10 :g]
   :dg #{:decigrams :decigram}
-  
+
   :dag [10 :g]
   :dag #{:decagrams :decagram}
 
@@ -41,48 +48,48 @@
 
   :pearl-grain [1/4 :carat]
   :pearl-grain :jewelers-grain
-  
+
   ;; Celestial bodies
-  
+
   :Gg [1000 :Mg]
   :Gg #{:gigagrams :gigagram}
-  
+
   :Tg [1000 :Gg]
   :Tg #{:teragram :teragrams}
-  
+
   :Pg [1000 :Tg]
   :Pg #{:petagram :petagrams}
 
-    
+
   :Eg [1000 :Pg]
   :Eg #{:exagram :exagrams}
 
-  :Zg [1000 :Eg]
+  :Zg [1000N :Eg]
   :Zg #{:zettagram :zettagrams}
 
   :Yg [1000 :Zg]
   :Yg #{:yottagram :yottagrams}
 
   ;; Microscopic bodies
-  
+
   :mcg [1/1000 :g]
   :mcg #{:microgram :micrograms :µg}
 
   :ng [1/1000 :mcg]
   :ng #{:nanogram :nanograms}
-  
+
   :pg [1/1000 :ng]
   :pg #{:picogram :picograms}
-  
+
   :fg [1/1000 :pg]
   :fg #{:femtogram :femtograms}
-  
+
   :ag [1/1000 :fg]
   :ag #{:attogram :attograms}
-  
+
   :zg [1/1000 :ag]
   :zg #{:zeptogram :zeptograms}
-  
-  :yg [1/1000 :yg]
-  :yg #{:yoctogram :yoctograms}
+
+  ;; :yg [1/1000 :yg]
+  ;; :yg #{:yoctogram :yoctograms}
 )

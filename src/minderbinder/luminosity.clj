@@ -1,5 +1,5 @@
 (ns minderbinder.luminosity
-  (:require [minderbinder.core :refer (defunits-of)]))
+  (:require [minderbinder.core :refer [defunits-of]]))
 
 (defunits-of luminosity :candela
   ""

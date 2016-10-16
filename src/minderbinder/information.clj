@@ -1,5 +1,5 @@
 (ns minderbinder.information
-  (:require [minderbinder.core :refer (defunits-of)]))
+  (:require [minderbinder.core :refer [defunits-of]]))
 
 ;; Basic unit of information (entropy).  The entropy in bits
 ;; of a random variable over a finite alphabet is defined
@@ -22,11 +22,11 @@
   :gigabyte #{:gibibyte :GiB :GB}
   :terabyte [1024 :gigabyte]
   :terabyte #{:tebibyte :TiB :TB}
-  :petabyte [1024 :terabyte]
+  :petabyte [1024N :terabyte]
   :petabyte #{:pebibyte :PiB :PB}
   :exabyte [1024 :petabyte]
   :exabyte #{:exbibyte :EiB :EB}
-  :internet [500N :exabyte]        ;; estimate, as of 2009
+  :internet [1000N :exabyte]        ;; moving target
   :zettabyte [1024N :exabyte]
   :zettabyte #{:zebibyte :ZiB :ZB}
   :yottabyte [1024N :zettabyte]
